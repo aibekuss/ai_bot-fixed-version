@@ -45,8 +45,8 @@ let ragService: RAGService | null = null;
 
 // Ищем папку data
 const possiblePaths = [
-    path.join(__dirname, 'data'),
     path.join(__dirname, '..', 'src', 'data'),
+    path.join(__dirname, 'data'),
     path.join(__dirname, '..', 'data'),
 ];
 let dataDir: string | null = null;
@@ -164,7 +164,7 @@ async function connectToWhatsApp() {
                 }
             } else {
                 // Если RAG не инициализирован - отправляем справку
-                response = "❌ Бот недоступен. Пожалуйста позвоните: +7 777 123 45 67";
+                response = "❌ Бот недоступен. Пожалуйста позвоните: +7 778 966 8045";
             }
             
             await sock.sendMessage(sessionId, { text: response });
@@ -174,7 +174,7 @@ async function connectToWhatsApp() {
             // Не пытаемся отправить ошибку если соединение закрыто
             if (error.message !== 'Connection Closed') {
                 await sock.sendMessage(sessionId, { 
-                    text: '❌ Ошибка обработки. Попробуйте позже или позвоните: +7 777 123 45 67' 
+                    text: '❌ Ошибка обработки. Попробуйте позже или позвоните: +7 778 966 8045' 
                 });
             }
         }
